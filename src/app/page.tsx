@@ -2,6 +2,9 @@ import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { Hero } from '@/components/landing/Hero';
 import { TemplateShowcase } from '@/components/landing/TemplateShowcase';
+import { HowItWorks } from '@/components/landing/HowItWorks';
+import { Testimonials } from '@/components/landing/Testimonials';
+import { FAQ } from '@/components/landing/FAQ';
 import { PageTransition } from '@/components/layout/PageTransition';
 import { Lock, Eye, IndianRupee } from 'lucide-react';
 
@@ -12,6 +15,7 @@ export default function Home() {
       <PageTransition className="flex-1">
         <Hero />
         <TemplateShowcase />
+        <HowItWorks />
 
         {/* Features Section */}
         <section className="py-24 bg-[#FAF9F6]">
@@ -39,6 +43,9 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        <Testimonials />
+        <FAQ />
       </PageTransition>
       <Footer />
     </main>
