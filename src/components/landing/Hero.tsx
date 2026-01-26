@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
+import { MotionButton } from '@/components/ui/motion-button';
 import { CheckCircle2 } from 'lucide-react';
 
 export function Hero() {
@@ -21,9 +22,14 @@ export function Hero() {
 
                     <div className="flex flex-col sm:flex-row gap-4 mb-4">
                         <Link href="/templates">
-                            <Button size="lg" className="bg-[#C5A045] hover:bg-[#B39035] text-white rounded-md px-8 h-12 text-lg shadow-lg hover:shadow-xl transition-all">
+                            <MotionButton
+                                size="lg"
+                                className="bg-[#C5A045] hover:bg-[#B39035] text-white rounded-md px-8 h-12 text-lg shadow-lg hover:shadow-xl dark:shadow-none"
+                                whileHover={{ scale: 1.05 }}
+                                whileTap={{ scale: 0.95 }}
+                            >
                                 Start Creating Free
-                            </Button>
+                            </MotionButton>
                         </Link>
                         <div className="flex items-center gap-2 text-sm text-muted-foreground self-center">
                             <CheckCircle2 className="w-4 h-4 text-[#C5A045]" /> No credit card needed

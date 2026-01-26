@@ -8,6 +8,23 @@ import { PersonalDetailsForm } from '@/components/builder/PersonalDetailsForm';
 import { EducationForm, FamilyDetailsForm } from '@/components/builder/OtherForms';
 import { PhotoUploadForm, ReviewStep, DownloadStep } from '@/components/builder/FinalSteps';
 import { Step, TOOLS_STEPS } from '@/lib/types';
+import { AnimatePresence, motion } from 'framer-motion';
+import { PageTransition } from '@/components/layout/PageTransition';
+
+function StepWrapper({ children, currentStep }: { children: React.ReactNode, currentStep: string }) {
+    return (
+        <motion.div
+            key={currentStep}
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -20 }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
+            className="w-full"
+        >
+            {children}
+        </motion.div>
+    );
+}
 
 export default function BuilderPage() {
     const { currentStep, setStep } = useBiodataStore();
@@ -46,8 +63,7 @@ export default function BuilderPage() {
     return (
         <div className="h-screen flex flex-col overflow-hidden">
             <Navbar />
-
-            <div className="flex-1 flex overflow-hidden">
+            <PageTransition className="flex-1 flex overflow-hidden">
                 {/* Left Side: Form Scrollable */}
                 <div className="w-full lg:w-[45%] overflow-y-auto bg-white relative">
                     {/* Stepper Header */}
@@ -65,8 +81,12 @@ export default function BuilderPage() {
                     </div>
 
                     {/* Form Content */}
-                    <div className="min-h-[calc(100vh-200px)]">
-                        {renderStep()}
+                    <div className="min-h-[calc(100vh-200px)] relative">
+                        <AnimatePresence mode="wait">
+                            <StepWrapper currentStep={currentStep}>
+                                {renderStep()}
+                            </StepWrapper>
+                        </AnimatePresence>
                     </div>
                 </div>
 
@@ -74,7 +94,7 @@ export default function BuilderPage() {
                 <div className="hidden lg:block w-[55%] h-full bg-[#FAF9F6]">
                     <LivePreview />
                 </div>
-            </div>
+            </PageTransition>
         </div>
     );
 }

@@ -19,8 +19,8 @@ export function TemplateShowcase() {
 
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
                     {TEMPLATES.map((t) => (
-                        <div key={t.id} className="group cursor-pointer">
-                            <div className={`relative aspect-[3/4] rounded-t-full rounded-b-lg overflow-hidden ${t.color} p-4 shadow-lg group-hover:-translate-y-2 transition-transform duration-300`}>
+                        <div key={t.id} className="group cursor-pointer transition-transform duration-300 hover:scale-105">
+                            <div className={`relative aspect-[3/4] rounded-t-full rounded-b-lg overflow-hidden ${t.color} p-4 shadow-lg group-hover:shadow-2xl transition-all duration-300`}>
                                 {/* This represents the arch shape in the design */}
                                 <div className="bg-white/90 h-full w-full shadow-inner flex items-center justify-center">
                                     <span className="text-xs uppercase tracking-widest opacity-30 font-bold">{t.name}</span>
