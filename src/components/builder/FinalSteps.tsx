@@ -3,6 +3,9 @@ import { useBiodataStore } from '@/lib/store';
 import { Button } from '@/components/ui/button';
 import { UploadCloud } from 'lucide-react';
 import Image from 'next/image';
+import { PDFDownloadLink } from '@react-pdf/renderer';
+import { BasicModernPdf } from '@/components/pdf/BasicModernPdf';
+import { useEffect, useState } from 'react';
 
 export function PhotoUploadForm({ onNext, onBack }: { onNext: () => void, onBack: () => void }) {
     const { biodata, updateBiodata } = useBiodataStore();
@@ -57,6 +60,8 @@ export function PhotoUploadForm({ onNext, onBack }: { onNext: () => void, onBack
     );
 }
 
+
+
 export function ReviewStep({ onNext, onBack }: { onNext: () => void, onBack: () => void }) {
     return (
         <div className="max-w-xl mx-auto py-8 px-4 text-center">
@@ -72,6 +77,15 @@ export function ReviewStep({ onNext, onBack }: { onNext: () => void, onBack: () 
 }
 
 export function DownloadStep({ onBack }: { onBack: () => void }) {
+    const { biodata } = useBiodataStore();
+    const [isClient, setIsClient] = useState(false);
+
+    useEffect(() => {
+        setIsClient(true);
+    }, []);
+
+    const fileName = `ShaadiBio-Biodata-${biodata.personalDetails.fullName?.replace(/\s+/g, '_') || 'Draft'}.pdf`;
+
     return (
         <div className="max-w-xl mx-auto py-8 px-4 text-center">
             <div className="mb-8"><h2 className="text-2xl font-serif font-bold text-[#2A2A2A]">Ready to Download</h2></div>
@@ -79,7 +93,21 @@ export function DownloadStep({ onBack }: { onBack: () => void }) {
             <div className="bg-white p-8 rounded-xl shadow border border-gray-100 mb-8">
                 <h3 className="font-bold text-lg mb-2">Free Watermarked Version</h3>
                 <p className="text-sm text-gray-500 mb-4">Download a standard quality PDF with ShaadiBio watermark.</p>
-                <Button className="w-full" disabled>Download PDF (Coming Soon)</Button>
+
+                {isClient ? (
+                    <PDFDownloadLink
+                        document={<BasicModernPdf data={biodata} />}
+                        fileName={fileName}
+                    >
+                        {({ loading }) => (
+                            <Button className="w-full" disabled={loading}>
+                                {loading ? 'Generating PDF...' : 'Download PDF Now'}
+                            </Button>
+                        )}
+                    </PDFDownloadLink>
+                ) : (
+                    <Button className="w-full" disabled>Loading...</Button>
+                )}
             </div>
 
             <div className="bg-[#FFFBF0] p-8 rounded-xl border border-[#C5A045] relative overflow-hidden">
