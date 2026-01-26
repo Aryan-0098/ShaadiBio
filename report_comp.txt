@@ -1,8 +1,0 @@
-
-C:\Users\aryan\Documents\AntiGravityProjects\project2\stitch-shaadibio\src\components\builder\FinalSteps.tsx
-  35:19  error  Comments inside children section of tag should be placed inside braces  react/jsx-no-comment-textnodes
-  37:31  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`         react/no-unescaped-entities
-  37:42  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`         react/no-unescaped-entities
-
-✖ 3 problems (3 errors, 0 warnings)
-
