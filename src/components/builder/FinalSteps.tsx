@@ -2,6 +2,7 @@
 import { useBiodataStore } from '@/lib/store';
 import { Button } from '@/components/ui/button';
 import { UploadCloud } from 'lucide-react';
+import Image from 'next/image';
 
 export function PhotoUploadForm({ onNext, onBack }: { onNext: () => void, onBack: () => void }) {
     const { biodata, updateBiodata } = useBiodataStore();
@@ -33,10 +34,17 @@ export function PhotoUploadForm({ onNext, onBack }: { onNext: () => void, onBack
                 </div>
             </div>
 
+
             <div className="mt-8 grid grid-cols-3 gap-4">
                 {biodata.photos.map((src, i) => (
-                    <div key={i} className="aspect-square rounded-lg overflow-hidden border">
-                        <img src={src} alt="Preview" className="w-full h-full object-cover" />
+                    <div key={i} className="aspect-square rounded-lg overflow-hidden border relative">
+                        <Image
+                            src={src}
+                            alt="Preview"
+                            fill
+                            className="object-cover"
+                            unoptimized
+                        />
                     </div>
                 ))}
             </div>

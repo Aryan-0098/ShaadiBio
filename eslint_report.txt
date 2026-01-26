@@ -1,0 +1,32 @@
+
+C:\Users\aryan\Documents\AntiGravityProjects\project2\stitch-shaadibio\read_log.js
+  1:12  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+C:\Users\aryan\Documents\AntiGravityProjects\project2\stitch-shaadibio\src\components\builder\FinalSteps.tsx
+  39:25  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+C:\Users\aryan\Documents\AntiGravityProjects\project2\stitch-shaadibio\src\components\builder\OtherForms.tsx
+   7:54  error  'lifestyleSchema' is defined but never used                      @typescript-eslint/no-unused-vars
+   7:71  error  'partnerPreferencesSchema' is defined but never used             @typescript-eslint/no-unused-vars
+  21:51  error  Unexpected any. Specify a different type                         @typescript-eslint/no-explicit-any
+  26:81  error  Unexpected any. Specify a different type                         @typescript-eslint/no-explicit-any
+  68:49  error  Unexpected any. Specify a different type                         @typescript-eslint/no-explicit-any
+  73:79  error  Unexpected any. Specify a different type                         @typescript-eslint/no-explicit-any
+  84:56  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  87:56  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  92:56  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  95:56  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\aryan\Documents\AntiGravityProjects\project2\stitch-shaadibio\src\components\builder\PersonalDetailsForm.tsx
+  18:51  error  Unexpected any. Specify a different type                                                                             @typescript-eslint/no-explicit-any
+  25:13  error  Use "@ts-expect-error" instead of "@ts-ignore", as "@ts-ignore" will do nothing if the following line is error-free  @typescript-eslint/ban-ts-comment
+  39:67  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`                                                      react/no-unescaped-entities
+
+C:\Users\aryan\Documents\AntiGravityProjects\project2\stitch-shaadibio\src\components\landing\TemplateShowcase.tsx
+  1:8  error  'Image' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\aryan\Documents\AntiGravityProjects\project2\stitch-shaadibio\tailwind.config.ts
+  61:13  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+✖ 17 problems (16 errors, 1 warning)
+

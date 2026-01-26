@@ -2,7 +2,6 @@
 
 import { Navbar } from '@/components/layout/Navbar';
 import { Button } from '@/components/ui/button';
-import { Card } from '@/components/ui/card';
 import { useBiodataStore } from '@/lib/store';
 import { CheckCircle2, Lock } from 'lucide-react';
 import { useRouter } from 'next/navigation';
@@ -72,8 +71,8 @@ export default function TemplatesPage() {
                         <button
                             key={tab}
                             className={`px-6 py-2 rounded-full text-sm font-medium transition-colors ${i === 0
-                                    ? 'bg-[#C5A045] text-white shadow-md'
-                                    : 'bg-white text-muted-foreground hover:bg-gray-50 border'
+                                ? 'bg-[#C5A045] text-white shadow-md'
+                                : 'bg-white text-muted-foreground hover:bg-gray-50 border'
                                 }`}
                         >
                             {tab}

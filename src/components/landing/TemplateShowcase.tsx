@@ -1,5 +1,4 @@
-import Image from 'next/image';
-
+// Imports removed.
 const TEMPLATES = [
     { id: 'classic', name: 'The Classic', color: 'bg-[#C8A17D]', image: '/templates/classic.png' },
     { id: 'floral', name: 'Modern Floral', color: 'bg-[#FFD1DC]', image: '/templates/floral.png' },

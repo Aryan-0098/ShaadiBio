@@ -1,12 +1,14 @@
 import { Biodata } from '@/lib/types';
-import { Mail, Phone, MapPin, Calendar, User, Briefcase, GraduationCap, Heart, Users } from 'lucide-react';
+import { User } from 'lucide-react'; // Only User is used
+import Image from 'next/image';
 
 interface Props {
     data: Biodata;
 }
 
 export function BasicModernTemplate({ data }: Props) {
-    const { personalDetails, educationCareer, familyDetails, lifestyle, partnerPreferences } = data;
+    // Removed lifestyle, partnerPreferences as they are unused
+    const { personalDetails, educationCareer, familyDetails } = data;
 
     return (
         <div className="w-[210mm] min-h-[297mm] bg-white shadow-2xl mx-auto p-0 flex flex-col text-sm text-gray-700 font-serif leading-relaxed relative overflow-hidden">
@@ -23,9 +25,15 @@ export function BasicModernTemplate({ data }: Props) {
                 <div className="w-16 h-1 bg-[#C5A045] mx-auto mb-8" />
 
                 {/* Photo Placeholder */}
-                <div className="w-40 h-40 mx-auto rounded-full border-4 border-white shadow-lg bg-gray-100 flex items-center justify-center overflow-hidden mb-8">
+                <div className="w-40 h-40 mx-auto rounded-full border-4 border-white shadow-lg bg-gray-100 flex items-center justify-center overflow-hidden mb-8 relative">
                     {data.photos[0] ? (
-                        <img src={data.photos[0]} alt="Profile" className="w-full h-full object-cover" />
+                        <Image
+                            src={data.photos[0]}
+                            alt="Profile"
+                            fill
+                            className="object-cover"
+                            unoptimized
+                        />
                     ) : (
                         <User className="w-12 h-12 text-gray-300" />
                     )}

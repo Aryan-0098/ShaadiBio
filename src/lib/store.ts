@@ -9,7 +9,6 @@ interface BiodataState {
 
     // Actions
     updateBiodata: (section: keyof Biodata, data: Partial<Biodata[keyof Biodata]>) => void;
-    updateNestedField: (section: keyof Biodata, field: string, value: any) => void;
     setStep: (step: Step) => void;
     setTemplate: (id: string) => void;
     resetDraft: () => void;
@@ -33,16 +32,7 @@ export const useBiodataStore = create<BiodataState>()(
                     },
                 })),
 
-            updateNestedField: (section, field, value) =>
-                set((state) => ({
-                    biodata: {
-                        ...state.biodata,
-                        [section]: {
-                            ...state.biodata[section],
-                            [field]: value
-                        }
-                    }
-                })),
+            // updateNestedField removed as it was unused and invoked 'any' types.
 
             setStep: (step) => set({ currentStep: step }),
             setTemplate: (id) => set({ selectedTemplateId: id }),

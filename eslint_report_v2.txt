@@ -1,0 +1,14 @@
+
+C:\Users\aryan\Documents\AntiGravityProjects\project2\stitch-shaadibio\read_log.js
+  1:12  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+C:\Users\aryan\Documents\AntiGravityProjects\project2\stitch-shaadibio\src\components\builder\FinalSteps.tsx
+  35:19  error  Comments inside children section of tag should be placed inside braces  react/jsx-no-comment-textnodes
+  37:31  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`         react/no-unescaped-entities
+  37:42  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`         react/no-unescaped-entities
+
+C:\Users\aryan\Documents\AntiGravityProjects\project2\stitch-shaadibio\src\components\landing\TemplateShowcase.tsx
+  1:10  error  'useRouter' is defined but never used  @typescript-eslint/no-unused-vars
+
+✖ 5 problems (5 errors, 0 warnings)
+

@@ -9,25 +9,22 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '
 import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Button } from '@/components/ui/button';
-import { Biodata } from '@/lib/types';
 
 import { z } from 'zod';
 
 export function PersonalDetailsForm({ onNext }: { onNext: () => void }) {
     const { biodata, updateBiodata } = useBiodataStore();
 
-    type FormValues = z.infer<typeof personalDetailsSchema>;
-
     const form = useForm({
         resolver: zodResolver(personalDetailsSchema),
-        defaultValues: biodata.personalDetails as any,
+        defaultValues: biodata.personalDetails as unknown as z.infer<typeof personalDetailsSchema>,
         mode: 'onChange',
     });
 
     // Autosave: Watch for changes and update store
     useEffect(() => {
         const subscription = form.watch((value) => {
-            // @ts-ignore - partial update is safe here
+            // Partial update
             updateBiodata('personalDetails', value);
         });
         return () => subscription.unsubscribe();
@@ -41,7 +38,7 @@ export function PersonalDetailsForm({ onNext }: { onNext: () => void }) {
         <div className="max-w-xl mx-auto py-8 px-4">
             <div className="mb-8">
                 <h2 className="text-2xl font-serif font-bold text-[#2A2A2A] border-l-4 border-[#C5A045] pl-4">Personal Details</h2>
-                <p className="text-muted-foreground mt-2 pl-5">Let's start with the basics for your biodata.</p>
+                <p className="text-muted-foreground mt-2 pl-5">Let&apos;s start with the basics for your biodata.</p>
             </div>
 
             <Form {...form}>
@@ -124,6 +121,7 @@ export function PersonalDetailsForm({ onNext }: { onNext: () => void }) {
                                             type="number"
                                             placeholder="25"
                                             {...field}
+                                            value={(field.value as number) || ''}
                                             // Handle number coercion manually if needed, or rely on zod coerce
                                             onChange={e => field.onChange(e.target.valueAsNumber)}
                                         />

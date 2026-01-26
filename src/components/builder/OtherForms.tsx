@@ -4,31 +4,27 @@ import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useBiodataStore } from '@/lib/store';
-import { educationCareerSchema, familyDetailsSchema, lifestyleSchema, partnerPreferencesSchema } from '@/lib/validation/schemas';
+import { educationCareerSchema, familyDetailsSchema } from '@/lib/validation/schemas';
+import { z } from 'zod';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
-import { Biodata, Step } from '@/lib/types';
 
 // A mapped object to get schema and keys dynamically could be cleaner, 
 // but for explicit clarity I'll create separate components or a robust dynamic one.
 // Let's create specific forms to avoid complexity.
 
-import { z } from 'zod';
-
 export function EducationForm({ onNext, onBack }: { onNext: () => void, onBack: () => void }) {
     const { biodata, updateBiodata } = useBiodataStore();
 
-    type EdFormValues = z.infer<typeof educationCareerSchema>;
-
     const form = useForm({
         resolver: zodResolver(educationCareerSchema),
-        defaultValues: biodata.educationCareer as any,
+        defaultValues: biodata.educationCareer as unknown as z.infer<typeof educationCareerSchema>,
         mode: 'onChange'
     });
 
     useEffect(() => {
-        const sub = form.watch((val) => updateBiodata('educationCareer', val as any));
+        const sub = form.watch((val) => updateBiodata('educationCareer', val));
         return () => sub.unsubscribe();
     }, [form, updateBiodata]);
 
@@ -68,16 +64,14 @@ export function EducationForm({ onNext, onBack }: { onNext: () => void, onBack: 
 export function FamilyDetailsForm({ onNext, onBack }: { onNext: () => void, onBack: () => void }) {
     const { biodata, updateBiodata } = useBiodataStore();
 
-    type FamFormValues = z.infer<typeof familyDetailsSchema>;
-
     const form = useForm({
         resolver: zodResolver(familyDetailsSchema),
-        defaultValues: biodata.familyDetails as any,
+        defaultValues: biodata.familyDetails as unknown as z.infer<typeof familyDetailsSchema>,
         mode: 'onChange'
     });
 
     useEffect(() => {
-        const sub = form.watch((val) => updateBiodata('familyDetails', val as any));
+        const sub = form.watch((val) => updateBiodata('familyDetails', val));
         return () => sub.unsubscribe();
     }, [form, updateBiodata]);
 
@@ -88,18 +82,18 @@ export function FamilyDetailsForm({ onNext, onBack }: { onNext: () => void, onBa
                 <form onSubmit={form.handleSubmit(onNext)} className="space-y-6">
                     <div className="grid grid-cols-2 gap-4">
                         <FormField name="fatherName" control={form.control} render={({ field }) => (
-                            <FormItem><FormLabel>Father's Name</FormLabel><FormControl><Input {...field} /></FormControl></FormItem>
+                            <FormItem><FormLabel>Father&apos;s Name</FormLabel><FormControl><Input {...field} /></FormControl></FormItem>
                         )} />
                         <FormField name="fatherOccupation" control={form.control} render={({ field }) => (
-                            <FormItem><FormLabel>Father's Occupation</FormLabel><FormControl><Input {...field} /></FormControl></FormItem>
+                            <FormItem><FormLabel>Father&apos;s Occupation</FormLabel><FormControl><Input {...field} /></FormControl></FormItem>
                         )} />
                     </div>
                     <div className="grid grid-cols-2 gap-4">
                         <FormField name="motherName" control={form.control} render={({ field }) => (
-                            <FormItem><FormLabel>Mother's Name</FormLabel><FormControl><Input {...field} /></FormControl></FormItem>
+                            <FormItem><FormLabel>Mother&apos;s Name</FormLabel><FormControl><Input {...field} /></FormControl></FormItem>
                         )} />
                         <FormField name="motherOccupation" control={form.control} render={({ field }) => (
-                            <FormItem><FormLabel>Mother's Occupation</FormLabel><FormControl><Input {...field} /></FormControl></FormItem>
+                            <FormItem><FormLabel>Mother&apos;s Occupation</FormLabel><FormControl><Input {...field} /></FormControl></FormItem>
                         )} />
                     </div>
                     <FormField name="siblings" control={form.control} render={({ field }) => (
