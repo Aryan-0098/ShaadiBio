@@ -107,14 +107,7 @@ export default function BuilderPage() {
                         </div>
                     </div>
 
-                    {/* Step 8 Mobile: Show Preview Stacked Above Form */}
-                    {currentStep === 'download' && (
-                        <div className="lg:hidden w-full h-[500px] bg-[#FAF9F6] border-b overflow-hidden relative">
-                            {/* We re-use LivePreview but forcefully scaled for this container */}
-                            <LivePreview />
-                            {/* Overlay to prevent interaction if needed, or just let them see it */}
-                        </div>
-                    )}
+
 
                     {/* Form Content */}
                     <div className="min-h-[calc(100vh-200px)] relative flex-1">
