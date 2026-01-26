@@ -29,6 +29,7 @@ function StepWrapper({ children, currentStep }: { children: React.ReactNode, cur
 export default function BuilderPage() {
     const { currentStep, setStep } = useBiodataStore();
     const [isClient, setIsClient] = useState(false);
+    const [activeTab, setActiveTab] = useState<'edit' | 'preview'>('edit');
 
     useEffect(() => {
         setIsClient(true);
@@ -60,14 +61,40 @@ export default function BuilderPage() {
         }
     };
 
+
+
     return (
-        <div className="h-screen flex flex-col overflow-hidden">
+        <div className="h-screen flex flex-col overflow-hidden bg-gray-50">
             <Navbar />
-            <PageTransition className="flex-1 flex overflow-hidden">
-                {/* Left Side: Form Scrollable */}
-                <div className="w-full lg:w-[45%] overflow-y-auto bg-white relative">
+
+            {/* Mobile Tab Switcher (Visible only on Mobile) */}
+            {currentStep !== 'download' && (
+                <div className="lg:hidden bg-white border-b p-2 flex gap-2">
+                    <button
+                        onClick={() => setActiveTab('edit')}
+                        className={`flex-1 py-2 text-sm font-bold rounded-md transition-colors ${activeTab === 'edit' ? 'bg-[#C5A045] text-white' : 'bg-gray-100 text-gray-500'}`}
+                    >
+                        Edit Form
+                    </button>
+                    <button
+                        onClick={() => setActiveTab('preview')}
+                        className={`flex-1 py-2 text-sm font-bold rounded-md transition-colors ${activeTab === 'preview' ? 'bg-[#C5A045] text-white' : 'bg-gray-100 text-gray-500'}`}
+                    >
+                        Live Preview
+                    </button>
+                </div>
+            )}
+
+            <PageTransition className="flex-1 flex overflow-hidden relative">
+
+                {/* Left Side: Form (Visible if tab=edit OR Desktop OR Step=Download) */}
+                <div className={`
+                    w-full lg:w-[45%] overflow-y-auto bg-white relative flex flex-col
+                    ${activeTab === 'preview' && currentStep !== 'download' ? 'hidden lg:flex' : 'flex'}
+                `}>
+
                     {/* Stepper Header */}
-                    <div className="sticky top-0 bg-white/95 backdrop-blur z-10 border-b px-4 py-3 overflow-x-auto whitespace-nowrap hide-scroll">
+                    <div className="sticky top-0 bg-white/95 backdrop-blur z-20 border-b px-4 py-3 overflow-x-auto whitespace-nowrap hide-scroll shadow-sm">
                         <div className="flex items-center gap-2 text-sm">
                             {TOOLS_STEPS.filter(s => ['personal', 'education', 'family', 'photos', 'review'].includes(s.id)).map((s, i) => (
                                 <div key={s.id} className={`flex items-center ${currentStep === s.id ? 'text-[#C5A045] font-bold' : 'text-gray-400'}`}>
@@ -80,8 +107,17 @@ export default function BuilderPage() {
                         </div>
                     </div>
 
+                    {/* Step 8 Mobile: Show Preview Stacked Above Form */}
+                    {currentStep === 'download' && (
+                        <div className="lg:hidden w-full h-[500px] bg-[#FAF9F6] border-b overflow-hidden relative">
+                            {/* We re-use LivePreview but forcefully scaled for this container */}
+                            <LivePreview />
+                            {/* Overlay to prevent interaction if needed, or just let them see it */}
+                        </div>
+                    )}
+
                     {/* Form Content */}
-                    <div className="min-h-[calc(100vh-200px)] relative">
+                    <div className="min-h-[calc(100vh-200px)] relative flex-1">
                         <AnimatePresence mode="wait">
                             <StepWrapper currentStep={currentStep}>
                                 {renderStep()}
@@ -90,10 +126,15 @@ export default function BuilderPage() {
                     </div>
                 </div>
 
-                {/* Right Side: Live Preview (Hidden on mobile) */}
-                <div className="hidden lg:block w-[55%] h-full bg-[#FAF9F6]">
+                {/* Right Side: Live Preview */}
+                {/* Visible if keys: Desktop ALWAYS, Mobile if Tab=Preview */}
+                <div className={`
+                    w-full lg:w-[55%] h-full bg-[#FAF9F6] lg:block
+                    ${activeTab === 'preview' && currentStep !== 'download' ? 'block absolute inset-0 z-30' : 'hidden'}
+                `}>
                     <LivePreview />
                 </div>
+
             </PageTransition>
         </div>
     );
