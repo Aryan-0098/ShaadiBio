@@ -1,4 +1,4 @@
-import { Document, Page, Text, View, StyleSheet, Image, Font } from '@react-pdf/renderer';
+import { Document, Page, Text, View, StyleSheet, Image as PdfImage } from '@react-pdf/renderer';
 import { Biodata } from '@/lib/types';
 
 // Register specific font if needed, otherwise use built-in Helvetica/Times
@@ -141,7 +141,7 @@ export function BasicModernPdf({ data }: Props) {
 
                     <View style={styles.photoContainer}>
                         {data.photos[0] ? (
-                            <Image src={data.photos[0]} style={styles.photo} />
+                            <PdfImage src={data.photos[0]} style={styles.photo} />
                         ) : null}
                     </View>
                 </View>
