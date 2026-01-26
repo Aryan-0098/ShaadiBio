@@ -26,8 +26,9 @@ export function Testimonials() {
         <section className="py-24 bg-[#FAF9F6]">
             <div className="container mx-auto px-4">
                 <div className="text-center mb-16">
-                    <span className="text-xs font-bold tracking-widest text-[#C5A045] uppercase mb-2 block">Success Stories</span>
-                    <h2 className="text-3xl font-serif font-bold text-[#2A2A2A]">Loved by 10,000+ Users</h2>
+                    <span className="text-xs font-bold tracking-widest text-[#C5A045] uppercase mb-2 block">Community Love</span>
+                    <h2 className="text-3xl font-serif font-bold text-[#2A2A2A]">User Feedback (Examples)</h2>
+                    <p className="text-xs text-gray-400 mt-2">* Reviews shown are illustrative examples of user sentiment.</p>
                 </div>
 
                 <div className="grid md:grid-cols-3 gap-8">

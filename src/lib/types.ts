@@ -8,6 +8,8 @@ export type Step =
     | 'review'
     | 'download';
 
+export type BiodataData = Biodata;
+
 export interface Biodata {
     personalDetails: {
         fullName: string;
@@ -22,6 +24,7 @@ export interface Biodata {
         religion: string;
         caste?: string;
         subcaste?: string;
+        aboutMe?: string; // Added field
         horoscope?: {
             rashi?: string;
             nakshatra?: string;
@@ -46,6 +49,11 @@ export interface Biodata {
         familyType?: string; // atomic or nuclear etc
         familyStatus?: string; // middle class etc
         aboutFamily?: string;
+        gotra?: string; // Added field
+        contactPhone?: string; // Added field
+        contactEmail?: string; // Added field
+        address?: string; // Added field
+        city?: string; // Added field
     };
     lifestyle?: {
         diet?: 'veg' | 'non_veg' | 'jain' | 'eggetarian' | '';
@@ -63,6 +71,9 @@ export interface Biodata {
         occupation?: string;
         location?: string;
         expectations?: string; // free text
+        minHeight?: string; // Added field for easier template access
+        maxAge?: number; // Added field for easier template access
+        minAge?: number; // Added field for easier template access
     };
     photos: string[]; // array of base64 or object URLs
 }

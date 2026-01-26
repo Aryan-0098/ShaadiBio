@@ -1,4 +1,5 @@
 import { Heart } from 'lucide-react';
+import Link from 'next/link';
 
 export function Footer() {
     return (
@@ -9,8 +10,9 @@ export function Footer() {
                     <span className="font-serif font-bold text-lg">ShaadiBio</span>
                 </div>
                 <div className="text-sm text-muted-foreground flex justify-center gap-6 mb-4">
-                    <a href="#" className="hover:text-primary">Terms of Service</a>
-                    <a href="#" className="hover:text-primary">Privacy Policy</a>
+                    <Link href="/terms" className="hover:text-primary">Terms of Service</Link>
+                    <Link href="/privacy" className="hover:text-primary">Privacy Policy</Link>
+                    <Link href="/contact" className="hover:text-primary">Contact</Link>
                 </div>
                 <div className="text-xs text-muted-foreground">
                     © 2024 ShaadiBio. Made with ❤️ in India.

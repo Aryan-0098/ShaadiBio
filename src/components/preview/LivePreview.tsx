@@ -1,8 +1,7 @@
 'use client';
 
 import { useBiodataStore } from '@/lib/store';
-import { BasicModernTemplate } from './BasicModernTemplate';
-// Import other templates in future
+import { TemplateRenderer } from '@/components/templates/TemplateRenderer';
 
 export function LivePreview() {
     const { biodata, selectedTemplateId } = useBiodataStore();
@@ -24,9 +23,8 @@ export function LivePreview() {
             <div className="flex-1 overflow-y-auto overflow-x-hidden p-2 sm:p-8 flex items-start justify-center bg-secondary/30">
                 {/* Responsive Scale: 0.4 on mobile, 0.65 on desktop */}
                 <div className="transform scale-[0.4] sm:scale-[0.5] md:scale-[0.6] lg:scale-[0.65] origin-top shadow-2xl transition-all duration-300">
-                    {selectedTemplateId === 'basic-modern' && <BasicModernTemplate data={biodata} />}
-                    {/* Fallback */}
-                    {!selectedTemplateId && <div className="p-12 bg-white">Select a template</div>}
+                    <TemplateRenderer templateId={selectedTemplateId || 'basic-modern'} data={biodata} />
+                    {/* Fallback handled by Renderer default */}
                 </div>
             </div>
             {/* Footer note hidden on mobile to save space */}

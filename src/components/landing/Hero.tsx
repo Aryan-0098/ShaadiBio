@@ -16,8 +16,12 @@ export function Hero() {
                         Make a premium marriage biodata <br />
                         in <span className="text-primary italic">2 minutes</span>
                     </h1>
-                    <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
+                    <p className="text-lg text-muted-foreground mb-4 leading-relaxed">
                         Professional, beautiful, and effortless. Impress your prospects with a stunning profile crafted with traditional elegance. No login required.
+                    </p>
+                    <p className="text-xs text-gray-500 mb-8 flex items-center gap-2">
+                        <span className="w-1.5 h-1.5 rounded-full bg-green-500" />
+                        Free PDF (Watermarked) • Premium ₹99 (No Watermark)
                     </p>
 
                     <div className="flex flex-col sm:flex-row gap-4 mb-4">

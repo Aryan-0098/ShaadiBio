@@ -124,10 +124,27 @@ export default function TemplatesPage() {
                                         )}
                                     </div>
 
-                                    <div className="text-center mt-4">
+                                    <div className="text-center mt-4 space-y-2">
                                         <h3 className="font-serif font-bold text-lg text-[#2A2A2A]">{t.name}</h3>
                                         <p className="text-xs text-[#C5A045] uppercase tracking-wide">{t.desc}</p>
-                                        {isSelected && <span className="inline-block mt-2 text-xs bg-[#C5A045]/10 text-[#C5A045] px-2 py-0.5 rounded">Selected</span>}
+
+                                        {t.active ? (
+                                            <Button
+                                                variant={isSelected ? "default" : "outline"}
+                                                size="sm"
+                                                onClick={(e) => {
+                                                    e.stopPropagation();
+                                                    handleSelect(t.id);
+                                                }}
+                                                className={`w-full ${isSelected ? "bg-[#C5A045] text-white" : "border-[#C5A045] text-[#C5A045]"}`}
+                                            >
+                                                {isSelected ? "Selected" : "Use Template"}
+                                            </Button>
+                                        ) : (
+                                            <Button size="sm" disabled variant="ghost" className="w-full text-xs">
+                                                Coming Soon
+                                            </Button>
+                                        )}
                                     </div>
                                 </div>
                             );
