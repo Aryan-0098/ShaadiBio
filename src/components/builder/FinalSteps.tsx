@@ -114,7 +114,7 @@ export function DownloadStep({ onBack }: { onBack: () => void }) {
                 <div className="absolute top-0 right-0 bg-[#C5A045] text-white text-xs px-2 py-1 rounded-bl">RECOMMENDED</div>
                 <h3 className="font-bold text-lg mb-2">Premium High-Quality</h3>
                 <p className="text-sm text-gray-500 mb-4">Remove watermark + HD Quality + Priority Support</p>
-                <Button className="w-full bg-[#C5A045] hover:bg-[#B39035] text-white" disabled>Pay ₹99 (Phase 2)</Button>
+                <Button className="w-full bg-[#C5A045] hover:bg-[#B39035] text-white" disabled>Pay ₹29 (Phase 2)</Button>
             </div>
 
             <div className="pt-8 flex justify-start">

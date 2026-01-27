@@ -21,7 +21,7 @@ export function Hero() {
                     </p>
                     <p className="text-xs text-gray-500 mb-8 flex items-center gap-2">
                         <span className="w-1.5 h-1.5 rounded-full bg-green-500" />
-                        Free PDF (Watermarked) • Premium ₹99 (No Watermark)
+                        Free PDF (Watermarked) • Premium ₹29 (No Watermark)
                     </p>
 
                     <div className="flex flex-col sm:flex-row gap-4 mb-4">

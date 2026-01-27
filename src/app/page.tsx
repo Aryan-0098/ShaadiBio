@@ -37,7 +37,7 @@ export default function Home() {
               />
               <FeatureCard
                 icon={<IndianRupee className="w-6 h-6 text-[#C5A045]" />}
-                title="₹99 Watermark-free"
+                title="₹29 Watermark-free"
                 desc="Premium quality high-resolution PDF export at an affordable price."
               />
             </div>
