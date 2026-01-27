@@ -1,7 +1,6 @@
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
-import { Button } from "@/components/ui/button";
-import { Mail, MessageSquare } from "lucide-react";
+import { Mail } from "lucide-react";
 
 export default function ContactPage() {
     return (
@@ -13,8 +12,8 @@ export default function ContactPage() {
                     Have questions or need help with your biodata? We&apos;re here to assist you.
                 </p>
 
-                <div className="grid md:grid-cols-2 gap-6 mb-12">
-                    <div className="bg-white p-8 rounded-xl shadow-sm border flex flex-col items-center">
+                <div className="flex justify-center mb-12">
+                    <div className="bg-white p-8 rounded-xl shadow-sm border flex flex-col items-center max-w-md w-full">
                         <div className="w-12 h-12 bg-[#FFFBF0] rounded-full flex items-center justify-center mb-4">
                             <Mail className="w-6 h-6 text-[#C5A045]" />
                         </div>
@@ -23,17 +22,6 @@ export default function ContactPage() {
                         <a href="mailto:Shaadibio.help@gmail.com" className="text-[#C5A045] font-bold hover:underline">
                             Shaadibio.help@gmail.com
                         </a>
-                    </div>
-
-                    <div className="bg-white p-8 rounded-xl shadow-sm border flex flex-col items-center">
-                        <div className="w-12 h-12 bg-[#FFFBF0] rounded-full flex items-center justify-center mb-4">
-                            <MessageSquare className="w-6 h-6 text-[#C5A045]" />
-                        </div>
-                        <h3 className="font-bold text-lg mb-2">WhatsApp</h3>
-                        <p className="text-gray-500 mb-4">Quick help needed?</p>
-                        <Button variant="outline" className="border-[#C5A045] text-[#C5A045]">
-                            Chat on WhatsApp
-                        </Button>
                     </div>
                 </div>
 
