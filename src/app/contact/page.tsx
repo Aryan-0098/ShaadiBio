@@ -20,8 +20,8 @@ export default function ContactPage() {
                         </div>
                         <h3 className="font-bold text-lg mb-2">Email Support</h3>
                         <p className="text-gray-500 mb-4">Get a response within 24 hours</p>
-                        <a href="mailto:support@shaadibio.com" className="text-[#C5A045] font-bold hover:underline">
-                            support@shaadibio.com
+                        <a href="mailto:Shaadibio.help@gmail.com" className="text-[#C5A045] font-bold hover:underline">
+                            Shaadibio.help@gmail.com
                         </a>
                     </div>
 

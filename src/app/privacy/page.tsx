@@ -24,7 +24,7 @@ export default function PrivacyPage() {
                     <p>We prioritize your privacy. We do not sell your personal data to third parties. Photographs uploaded are processed essentially and not used for any other purpose.</p>
 
                     <h2 className="text-xl font-bold mt-6 mb-4">4. Contact Us</h2>
-                    <p>If you have any questions about this Privacy Policy, please contact us at support@shaadibio.com.</p>
+                    <p>If you have any questions about this Privacy Policy, please contact us at Shaadibio.help@gmail.com.</p>
                 </div>
             </main>
             <Footer />

@@ -24,6 +24,9 @@ export default function TermsPage() {
 
                     <h2 className="text-xl font-bold mt-6 mb-4">5. Disclaimer</h2>
                     <p>The service is provided &quot;as is&quot; without warranties of any kind. We are not responsible for any outcomes resulting from the use of the biodata created on our platform.</p>
+
+                    <h2 className="text-xl font-bold mt-6 mb-4">6. Contact Information</h2>
+                    <p>For any questions regarding these Terms, please contact us at Shaadibio.help@gmail.com.</p>
                 </div>
             </main>
             <Footer />

@@ -12,6 +12,7 @@ export function Footer() {
                 <div className="text-sm text-muted-foreground flex justify-center gap-6 mb-4">
                     <Link href="/terms" className="hover:text-primary">Terms of Service</Link>
                     <Link href="/privacy" className="hover:text-primary">Privacy Policy</Link>
+                    <Link href="/refund" className="hover:text-primary">Refund Policy</Link>
                     <Link href="/contact" className="hover:text-primary">Contact</Link>
                 </div>
                 <div className="text-xs text-muted-foreground">
