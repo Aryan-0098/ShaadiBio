@@ -40,5 +40,6 @@ lint.json
 eslint_report*.txt
 report*.txt
 parse_lint.js
-read_log.js
-read_comp_log.js
+read_*.js
+temp_*.js
+
